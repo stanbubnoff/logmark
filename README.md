@@ -10,6 +10,14 @@ I needed a very simple logger without third-party dependencies, a complex config
 
 I didn't find it. So, i'm wrote it.
 ## Quick start
+Install library from the npm:
+``` properties
+npm install logmark
+```
+or
+``` properties
+yarn add logmark
+```
 Logmark support five levels of logs:
 
 - debug
