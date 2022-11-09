@@ -1,0 +1,30 @@
+{
+  "name": "logmark",
+  "version": "1.0.0",
+  "description": "Simple, lightweight and dependency free nodejs logger with human-readable logs",
+  "main": "pkg/index.js",
+  "types": "pkg/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard src/*/**.js --fix",
+    "lint-pkg": "standard pkg/index.js --fix",
+    "build-esm": "esbuild src/core/Logmark.js --outfile=pkg/index.js --bundle --platform=node --format=esm --color=true && lint-pkg",
+    "build-cjs": "esbuild src/core/Logmark.js --outfile=pkg/index.cjs.js --bundle --platform=node --format=cjs --color=true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stasbubnoff/logmark.git"
+  },
+  "author": "Stanislav Bubnov <stasbubnoff@yahoo.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/stasbubnoff/logmark/issues",
+    "email": "stasbubnoff@yahoo.com"
+  },
+  "homepage": "https://github.com/stasbubnoff/logmark#readme",
+  "devDependencies": {
+    "esbuild": "^0.15.13",
+    "standard": "^17.0.0"
+  },
+  "type": "module"
+}
