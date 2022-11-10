@@ -1,6 +1,6 @@
 {
   "name": "logmark",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Simple, lightweight and dependency free nodejs logger with human-readable logs",
   "main": "pkg/index.js",
   "types": "pkg/index.d.ts",

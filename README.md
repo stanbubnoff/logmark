@@ -1,6 +1,6 @@
 !['logmark logo'](./docs/img/logmark_primary_color.png)
 
-# Simple, lightweight and dependency free nodejs logger with human-readable logs
+# Simple, lightweight (<5Kb) and dependency free nodejs logger with human-readable logs
 ## Why?
 I needed a very simple logger without third-party dependencies, a complex configuration and with a beautiful human-readable output. 
 
