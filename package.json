@@ -1,6 +1,6 @@
 {
   "name": "logmark",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple, lightweight and dependency free nodejs logger with human-readable logs",
   "main": "pkg/index.js",
   "types": "pkg/index.d.ts",
@@ -16,7 +16,7 @@
     "url": "git+https://github.com/stasbubnoff/logmark.git"
   },
   "author": "Stanislav Bubnov <stasbubnoff@yahoo.com>",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/stasbubnoff/logmark/issues",
     "email": "stasbubnoff@yahoo.com"
