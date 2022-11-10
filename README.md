@@ -4,9 +4,10 @@
 ## Why?
 I needed a very simple logger without third-party dependencies, a complex configuration and with a beautiful human-readable output. 
 
-I didn't find it. So, i'm wrote it.
+I didn't find it, so I wrote it.
 ## Quick start
-Install library from the npm:
+Install the library from npm:
+
 ``` properties
 npm install logmark
 ```
@@ -14,7 +15,7 @@ or
 ``` properties
 yarn add logmark
 ```
-Logmark support five levels of logs:
+Logmark supports five levels of logs:
 
 - debug
 - info
@@ -22,7 +23,7 @@ Logmark support five levels of logs:
 - error
 - fatal
 
-By default Logmark generate new 'logs' folder in your project root and all logs writes to a single 'logs.log' file
+By default, Logmark generates a new 'logs' folder in your project root, and write all logs to a single `logs.log` file
 
 Let's look at the code below:
 ```javascript
@@ -42,17 +43,17 @@ Now we can see next terminal output:
 
 As you can see, Logmark adds local time, pid and memory usage information to each message.  
 
-I think the memory usage information is very important and seeing its logs is very convenient for tracking memory leaks. It may also make it clear at an early stage that refactoring of some functions is necessary.
+I think the memory usage information is very important, and seeing it in logs is very convenient for tracking memory leaks. It may also make it clear early on that refactoring of some functions is necessary.
 
-Logmark has already created the logs folder and added the logs.log file to it.
+Logmark has already created the logs folder and added the `logs.log` file to it.
 Let's look at the file output:
 
 !['file screen1'](./docs/img/file_screen1.png)
 
-Well, in many cases this is enough for basic use, but you can add a few settings to distribute logs to different files, and you can also attach additional information to messages.
+In many cases this is enough for basic use, but you can add a few settings to distribute logs to different files, and you can also attach additional information to messages.
 ## Usage
 ### Config
-Let's look how you can set your custom name logs folder and file and distribute logs to different files.
+Let's look how you can set a custom path for the logs folder and file, and distribute logs to different files.
 
 ```javascript
 import { Logmark } from 'logmark'
@@ -141,21 +142,21 @@ File output:
 !['file screen2'](./docs/img/file_screen2.png)
 
 ## Roadmap
-I'm thinking about developing the library without much damage to its simplicity and minimalism. If there are suggestions, then forks and pull request are welcome!
+I hope to keep developing the library without compromising on its simplicity and minimalism. If there are suggestions, then forks and pull request are welcome!
 
-If you would like to see some functionality, you can open issue
+If you would like to see some functionality, you can open an issue.
 
 I plan to add functionality for daily file rotation in the near future.
 ## Contributing
-Use StandardJS style and SonarLint and welcome! 
+Use StandardJS style and SonarLint - contributions are welcome! 
 ## Support project
-If you want to support the project with a small donation for my small contribution to open source, I will be very very happy!)
+If you want to support the project with a small donation for my small contribution to open source, I will be very very happy!
 
 BTC: bc1q4my5g4jf9cy0gzqams9mp06kmyuj59qgpwmrh6  
 ETH: 0x2C4e8803ecF2E44D55aF615dF8476C786B5b764a  
 USDT: 0x2C4e8803ecF2E44D55aF615dF8476C786B5b764a  
 USDC: 0x2C4e8803ecF2E44D55aF615dF8476C786B5b764a 
 
-Also a simple support will be a simple star on github :)
+Also, giving me a simple "star" on GitHub is an easy way to support :)
 
 Thanks!
