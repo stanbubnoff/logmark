@@ -21,6 +21,16 @@
     "url": "https://github.com/stasbubnoff/logmark/issues",
     "email": "stasbubnoff@yahoo.com"
   },
+  "keywords": [
+    "log",
+    "terminal",
+    "log",
+    "logger",
+    "console",
+    "color",
+    "print",
+    "ansi"
+  ],
   "homepage": "https://github.com/stasbubnoff/logmark#readme",
   "devDependencies": {
     "esbuild": "^0.15.13",
