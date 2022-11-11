@@ -1,6 +1,6 @@
 {
   "name": "logmark",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simple, lightweight and dependency free nodejs logger with human-readable logs",
   "main": "pkg/index.js",
   "types": "pkg/index.d.ts",
@@ -15,7 +15,14 @@
     "type": "git",
     "url": "git+https://github.com/stasbubnoff/logmark.git"
   },
-  "author": "Stanislav Bubnov <stasbubnoff@yahoo.com>",
+  "author": {
+    "name": "Stanislav Bubnov",
+    "email": "stasbubnoff@yahoo.com",
+    "url": "https://github.com/stasbubnoff"
+  },
+  "contributors": [
+    {"name":"Ben Dundon","url":"https://github.com/BenDundon"}
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/stasbubnoff/logmark/issues",
