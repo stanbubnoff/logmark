@@ -47,18 +47,20 @@ export class Logmark {
     }
   }
 
+  #getMessageHead = () => {
+    let { rss, heapTotal, heapUsed } = process.memoryUsage()
+    rss = (rss / 1024).toFixed(2).toString().concat(' Kb')
+    heapTotal = (heapTotal / 1024).toFixed(2).toString().concat(' Kb')
+    heapUsed = (heapUsed / 1024).toFixed(2).toString().concat(' Kb')
+
+    return `${new Date().toLocaleString()} | pid: ${process.pid} | rss: ${rss} | heapTotal: ${heapTotal} | heapUsed: ${heapUsed} |\n\n${this.#TAB_SYMBOL.repeat(3)}`
+  }
+
   #createConsoleMessage = (level, msg, options) => {
     try {
-      let { rss, heapTotal, heapUsed } = process.memoryUsage()
-      rss = (rss / 1024).toFixed(2).toString().concat(' Kb')
-      heapTotal = (heapTotal / 1024).toFixed(2).toString().concat(' Kb')
-      heapUsed = (heapUsed / 1024).toFixed(2).toString().concat(' Kb')
+      const extraTag = (options && options.tag) ? ` #${options.tag}: ` : ''
 
-      if (options && options.tag) {
-        return `${this.#DECORS.bold}${this.#COLORS[level]}${this.#MARKERS[level]}${this.#DECORS.reset} | ${new Date().toLocaleString()} | pid: ${process.pid} | rss: ${rss} | heapTotal: ${heapTotal} | heapUsed: ${heapUsed} |\n\n${this.#TAB_SYMBOL.repeat(3)}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n${this.#COLORS[level]} #${options.tag}: ${msg.toString()}${this.#DECORS.reset}\n`
-      }
-
-      return `${this.#DECORS.bold}${this.#COLORS[level]}${this.#MARKERS[level]}${this.#DECORS.reset} | ${new Date().toLocaleString()} | pid: ${process.pid} | rss: ${rss} | heapTotal: ${heapTotal} | heapUsed: ${heapUsed} |\n\n${this.#TAB_SYMBOL.repeat(3)}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n${this.#COLORS[level]}${msg.toString()}${this.#DECORS.reset}\n`
+      return `${this.#DECORS.bold}${this.#COLORS[level]}${this.#MARKERS[level]}${this.#DECORS.reset} | ${this.#getMessageHead(level)}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n${this.#COLORS[level]}${extraTag}${msg.toString()}${this.#DECORS.reset}\n`
     } catch (error) {
       console.error(error)
     }
@@ -66,32 +68,11 @@ export class Logmark {
 
   #createFileMessage = async (level, msg, options) => {
     try {
-      let { rss, heapTotal, heapUsed } = process.memoryUsage()
-      rss = (rss / 1024).toFixed(2).toString().concat(' Kb')
-      heapTotal = (heapTotal / 1024).toFixed(2).toString().concat(' Kb')
-      heapUsed = (heapUsed / 1024).toFixed(2).toString().concat(' Kb')
+      const extraTag = (options && options.tag) ? ` #${options.tag}: ` : ''
+      const extraData = (options && options.data) ? `${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}\n\n${JSON.stringify(options.data)}\n\n` : ''
+      const extraError = (options && options.error) ? `${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}\n\n${options.error.stack.toString()}\n\n` : ''
 
-      if (options && options.tag) {
-        if (options.data) {
-          return `${this.#MARKERS[level]} | ${new Date().toLocaleString()} | pid: ${process.pid} | rss: ${rss} | heapTotal: ${heapTotal} | heapUsed: ${heapUsed} |\n\n${this.#TAB_SYMBOL.repeat(3)}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n #${options.tag}: ${msg.toString()}\n\n${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}\n\n${JSON.stringify(options.data)}\n\n`
-        }
-
-        if (options.error) {
-          return `${this.#MARKERS[level]} | ${new Date().toLocaleString()} | pid: ${process.pid} | rss: ${rss} | heapTotal: ${heapTotal} | heapUsed: ${heapUsed} |\n\n${this.#TAB_SYMBOL.repeat(3)}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n #${options.tag}: ${msg.toString()}\n\n${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}\n\n${options.error.stack.toString()}\n\n`
-        }
-
-        return `${this.#MARKERS[level]} | ${new Date().toLocaleString()} | pid: ${process.pid} | rss: ${rss} | heapTotal: ${heapTotal} | heapUsed: ${heapUsed} |\n\n${this.#TAB_SYMBOL.repeat(3)}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n #${options.tag}: ${msg.toString()}\n\n`
-      }
-
-      if (options && options.data) {
-        return `${this.#MARKERS[level]} | ${new Date().toLocaleString()} | pid: ${process.pid} | rss: ${rss} | heapTotal: ${heapTotal} | heapUsed: ${heapUsed} |\n\n${this.#TAB_SYMBOL.repeat(3)}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n${msg.toString()}\n\n${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}\n\n${JSON.stringify(options.data)}\n\n`
-      }
-
-      if (options && options.error) {
-        return `${this.#MARKERS[level]} | ${new Date().toLocaleString()} | pid: ${process.pid} | rss: ${rss} | heapTotal: ${heapTotal} | heapUsed: ${heapUsed} |\n\n${this.#TAB_SYMBOL.repeat(3)}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n${msg.toString()}\n\n${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}\n\n${options.error.stack.toString()}\n\n`
-      }
-
-      return `${this.#MARKERS[level]} | ${new Date().toLocaleString()} | pid: ${process.pid} | rss: ${rss} | heapTotal: ${heapTotal} | heapUsed: ${heapUsed} |\n\n${this.#TAB_SYMBOL.repeat(3)}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n${msg.toString()}\n\n`
+      return `${this.#MARKERS[level]} | ${this.#getMessageHead(level)}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n${extraTag}${msg.toString()}\n\n${extraData || extraError}`
     } catch (error) {
       console.error(error)
     }
