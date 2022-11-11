@@ -60,7 +60,7 @@ export class Logmark {
     try {
       const extraTag = (options && options.tag) ? ` #${options.tag}: ` : ''
 
-      return `${this.#DECORS.bold}${this.#COLORS[level]}${this.#MARKERS[level]}${this.#DECORS.reset} | ${this.#getMessageHead(level)}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n${this.#COLORS[level]}${extraTag}${msg.toString()}${this.#DECORS.reset}\n`
+      return `${this.#DECORS.bold}${this.#COLORS[level]}${this.#MARKERS[level]}${this.#DECORS.reset} | ${this.#getMessageHead()}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n${this.#COLORS[level]}${extraTag}${msg.toString()}${this.#DECORS.reset}\n`
     } catch (error) {
       console.error(error)
     }
@@ -72,7 +72,7 @@ export class Logmark {
       const extraData = (options && options.data) ? `${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}\n\n${JSON.stringify(options.data)}\n\n` : ''
       const extraError = (options && options.error) ? `${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}\n\n${options.error.stack.toString()}\n\n` : ''
 
-      return `${this.#MARKERS[level]} | ${this.#getMessageHead(level)}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n${extraTag}${msg.toString()}\n\n${extraData || extraError}`
+      return `${this.#MARKERS[level]} | ${this.#getMessageHead()}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n${extraTag}${msg.toString()}\n\n${extraData || extraError}`
     } catch (error) {
       console.error(error)
     }
