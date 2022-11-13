@@ -75,26 +75,11 @@ ${this.#COLORS[level]}${extraTag}${msg.toString()}${this.#DECORS.reset}
 
   #createFileMessage = async (level, msg, options) => {
     try {
-      const extraTag = options && options.tag ? ` #${options.tag}: ` : ''
-      const extraData = options && options.data
-        ? `${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}
+      const extraTag = (options && options.tag) ? ` #${options.tag}: ` : ''
+      const extraData = (options && options.data) ? `${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}\n\n${JSON.stringify(options.data)}\n\n` : ''
+      const extraError = (options && options.error) ? `${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}\n\n${(options.error.stack || options.error.message || options.error).toString()}\n\n` : ''
 
-${JSON.stringify(options.data)}
-
-`
-        : ''
-      const extraError = options && options.error
-        ? `${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}
-
-${options.error.stack.toString()}
-
-`
-        : ''
-      return `${this.#MARKERS[level]} | ${this.#getMessageHead()}  message   ${this.#TAB_SYMBOL.repeat(3)}
-
-${extraTag}${msg.toString()}
-
-${extraData || extraError}`
+      return `${this.#MARKERS[level]} | ${this.#getMessageHead()}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n${extraTag}${msg.toString()}\n\n${extraData || extraError}`
     } catch (error) {
       console.error(error)
     }
