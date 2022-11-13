@@ -70,7 +70,7 @@ export class Logmark {
     try {
       const extraTag = (options && options.tag) ? ` #${options.tag}: ` : ''
       const extraData = (options && options.data) ? `${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}\n\n${JSON.stringify(options.data)}\n\n` : ''
-      const extraError = (options && options.error) ? `${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}\n\n${options.error.stack.toString()}\n\n` : ''
+      const extraError = (options && options.error) ? `${this.#TAB_SYMBOL.repeat(3)} attachment ${this.#TAB_SYMBOL.repeat(3)}\n\n${(options.error.stack || options.error.message || options.error).toString()}\n\n` : ''
 
       return `${this.#MARKERS[level]} | ${this.#getMessageHead()}  message   ${this.#TAB_SYMBOL.repeat(3)}\n\n${extraTag}${msg.toString()}\n\n${extraData || extraError}`
     } catch (error) {
