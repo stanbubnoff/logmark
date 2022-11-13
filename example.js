@@ -1,4 +1,4 @@
-import { Logmark } from 'pkg/index.js'
+import { Logmark } from './pkg/index.js'
 
 const mark = new Logmark()
 
