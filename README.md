@@ -8,9 +8,7 @@
 >
 > I didn't find it, so I wrote it.
 
----
 ## Quick start
----
 
 Install the library from npm:
 
@@ -58,9 +56,7 @@ Let's look at the file output:
 
 In many cases this is enough for basic use, but you can add a few settings to distribute logs to different files, and you can also attach additional information to messages.
 
----
 ## Usage
----
 
 ### Config
 Let's look how you can set a custom path for the logs folder and file, and distribute logs to different files.
@@ -153,9 +149,7 @@ File output:
 
 !['file screen2'](./docs/img/file_screen2.png)
 
----
 ## Roadmap
----
 
 I hope to keep developing the library without compromising on its simplicity and minimalism. If there are suggestions, then forks and pull request are welcome!
 
@@ -163,15 +157,11 @@ If you would like to see some functionality, you can open an issue.
 
 I plan to add functionality for daily file rotation in the near future.
 
----
 ## Contributing
----
 
 Use StandardJS style and SonarLint - contributions are welcome! 
 
----
 ## Support project
----
 
 If you want to support the project with a small donation for my small contribution to open source, I will be very very happy!
 
