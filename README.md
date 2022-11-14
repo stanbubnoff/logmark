@@ -1,11 +1,17 @@
-!['logmark logo'](./docs/img/logmark_primary_color.png)
+<p align="center">
+  <img src="./docs/img/logmark_primary_color.png" />
+</p>
 
 # Simple, lightweight (<5Kb) and dependency free nodejs logger with human-readable logs
-## Why?
-I needed a very simple logger without third-party dependencies, a complex configuration and with a beautiful human-readable output. 
+> ## Why?
+> I needed a very simple logger without third-party dependencies, a complex > configuration and with a beautiful human-readable output. 
+>
+> I didn't find it, so I wrote it.
 
-I didn't find it, so I wrote it.
+---
 ## Quick start
+---
+
 Install the library from npm:
 
 ``` properties
@@ -51,7 +57,11 @@ Let's look at the file output:
 !['file screen1'](./docs/img/file_screen1.png)
 
 In many cases this is enough for basic use, but you can add a few settings to distribute logs to different files, and you can also attach additional information to messages.
+
+---
 ## Usage
+---
+
 ### Config
 Let's look how you can set a custom path for the logs folder and file, and distribute logs to different files.
 
@@ -86,7 +96,9 @@ const mark = new Logmark({
   }
 })
 ```
+
 ### Add tag
+
 You can set a tag to identify the initiator of the message.
 ```javascript
 import { Logmark } from 'logmark'
@@ -141,15 +153,26 @@ File output:
 
 !['file screen2'](./docs/img/file_screen2.png)
 
+---
 ## Roadmap
+---
+
 I hope to keep developing the library without compromising on its simplicity and minimalism. If there are suggestions, then forks and pull request are welcome!
 
 If you would like to see some functionality, you can open an issue.
 
 I plan to add functionality for daily file rotation in the near future.
+
+---
 ## Contributing
+---
+
 Use StandardJS style and SonarLint - contributions are welcome! 
+
+---
 ## Support project
+---
+
 If you want to support the project with a small donation for my small contribution to open source, I will be very very happy!
 
 BTC: bc1q4my5g4jf9cy0gzqams9mp06kmyuj59qgpwmrh6  
